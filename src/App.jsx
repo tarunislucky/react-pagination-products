@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-	console.log("APP");
 	const [products, setProducts] = useState();
 	const [totalPages, setTotalPages] = useState();
 	const [limit, setLimit] = useState(10);
@@ -33,6 +32,17 @@ function App() {
 
 	return (
 		<>
+			<div className="paginationContainer">
+				{products &&
+					[...Array(totalPages)].map((el, index) => (
+						<button
+							onClick={paginationBtnHandler}
+							className={currentPage === index + 1 && "current"}>
+							{" "}
+							{index + 1}
+						</button>
+					))}
+			</div>
 			<div className="productListContainer">
 				{products &&
 					products.map((product) => {
@@ -44,12 +54,6 @@ function App() {
 							</div>
 						);
 					})}
-			</div>
-			<div className="paginationContainer">
-				{products &&
-					[...Array(totalPages)].map((el, index) => (
-						<button onClick={paginationBtnHandler}> {index + 1}</button>
-					))}
 			</div>
 		</>
 	);

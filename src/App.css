@@ -7,7 +7,7 @@
 .productListContainer {
 	padding: 20px;
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: column;
 	gap: 20px;
 }
 
@@ -23,4 +23,11 @@
 }
 .paginationContainer button {
 	padding: 10px;
+	border: 1px solid grey;
+	cursor: pointer;
+}
+.paginationContainer button.current {
+	background-color: grey;
+	border: 1px solid grey;
+	color: #fff;
 }
